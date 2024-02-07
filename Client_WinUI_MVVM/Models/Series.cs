@@ -4,64 +4,128 @@ namespace Client_WinUI_MVVM.Models
 {
     public class Series
     {
-        int id;
-        string? nomDevise;
-        double taux;
-
+        int? serieid;
+        string? titre;
+        string? resume;
+        int? nbsaisons;
+        int? nbepisode;
+        int? anneecreation;
+        string? network;
 
         public Series()
         {
         }
 
-        public Series(int id, string? nomDevise, double taux)
+        public Series( string titre)
         {
-            this.Id = id;
-            this.NomDevise = nomDevise;
-            this.Taux = taux;
+            Titre = titre;
         }
 
-        public int Id
+        public Series(int? serieid, string titre, string resume, int? nbsaisons, int? nbepisode, int? anneecreation, string network)
+        {
+            Serieid = serieid;
+            Titre = titre;
+            Resume = resume;
+            Nbsaisons = nbsaisons;
+            Nbepisode = nbepisode;
+            Anneecreation = anneecreation;
+            Network = network;
+        }
+
+        public int? Serieid
         {
             get
             {
-                return id;
+                return serieid;
             }
 
             set
             {
-                id = value;
+                serieid = value;
             }
         }
-        [Required]
-        public string? NomDevise
+
+        public string Titre
         {
             get
             {
-                return nomDevise;
+                return titre;
             }
 
             set
             {
-                nomDevise = value;
+                titre = value;
             }
         }
 
-        public double Taux
+        public string Resume
         {
             get
             {
-                return this.taux;
+                return resume;
             }
 
             set
             {
-                this.taux = value;
+                resume = value;
+            }
+        }
+
+        public int? Nbsaisons
+        {
+            get
+            {
+                return nbsaisons;
+            }
+
+            set
+            {
+                nbsaisons = value;
+            }
+        }
+
+        public int? Nbepisode
+        {
+            get
+            {
+                return nbepisode;
+            }
+
+            set
+            {
+                nbepisode = value;
+            }
+        }
+
+        public int? Anneecreation
+        {
+            get
+            {
+                return anneecreation;
+            }
+
+            set
+            {
+                anneecreation = value;
+            }
+        }
+
+        public string Network
+        {
+            get
+            {
+                return network;
+            }
+
+            set
+            {
+                network = value;
             }
         }
 
         public override string ToString()
         {
-            return NomDevise;
+            return Titre;
         }
     }
 }

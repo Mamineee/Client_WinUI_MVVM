@@ -36,14 +36,15 @@ namespace Client_WinUI_MVVM.Services
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
         }
-        public async Task<List<Series>> GetSeriesAsync(string nomControleur, int Id)
+        public async Task<Series> GetSeriesAsync(string nomControleur, int Id)
         {
             try
-            {
-                return await client.GetFromJsonAsync<List<Series>>("/series/"+Id);
+            {                
+                return await client.GetFromJsonAsync<Series>(nomControleur + Id.ToString());
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                throw e;
                 return null;
             }
         }
@@ -58,14 +59,15 @@ namespace Client_WinUI_MVVM.Services
                 return null;
             }
         }
-        public async Task<List<Series>> PostSerieAsync(string nomControleur, int Id)
+        public async Task<HttpResponseMessage> PostSerieAsync(Series serie, string nomControleur)
         {
             try
-            {
-                return await client.GetFromJsonAsync<List<Series>>(nomControleur);
+            {   
+                return await client.PostAsJsonAsync<Series>(nomControleur, serie);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                throw e;
                 return null;
             }
         }
@@ -73,8 +75,7 @@ namespace Client_WinUI_MVVM.Services
         {
             try
             {
-
-                return await client.DeleteAsync(("/series/" + Id);
+                return await client.DeleteAsync("/series/" + Id);
             }
             catch (Exception)
             {
