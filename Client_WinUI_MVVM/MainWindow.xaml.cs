@@ -60,6 +60,8 @@ namespace Client_WinUI_MVVM
         private void myButton_Click_Post(object sender, RoutedEventArgs e)
         {
             postSerie();
+            int[,] khqg =new int[7,8];
+
 
         }
     }
